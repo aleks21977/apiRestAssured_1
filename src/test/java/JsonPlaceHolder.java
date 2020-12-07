@@ -46,7 +46,7 @@ public class JsonPlaceHolder extends TestConfig {
 
         given().body(postBodyJson).log().all().
         when().post(JSONPLACEHOLDER_POST).
-        then().log().body().statusCode(201);
+        then().spec(responseSpecificationForPost).log().body();
     }
 
     @Test
@@ -67,7 +67,7 @@ public class JsonPlaceHolder extends TestConfig {
 
         given().spec(requestSpecificationXml).body(postWithXml).log().all().
         when().post("").
-        then().log().body().statusCode(200);
+        then().spec(responseSpecificationForGet).log().body().statusCode(200);
 
 
     }
