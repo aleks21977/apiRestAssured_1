@@ -6,7 +6,7 @@ import static constants.Constants.Servers.*;
 public class Constants {
 
     public static class RunVeriable {
-        public static String server = REQUESTBIN_URL;
+        public static String server = JSON_PLACEHOLDER_URL;
         public static String path = "";
     }
 

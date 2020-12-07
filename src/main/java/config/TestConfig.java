@@ -8,19 +8,29 @@ import org.testng.annotations.BeforeClass;
 
 import static constants.Constants.RunVeriable.path;
 import static constants.Constants.RunVeriable.server;
+import static constants.Constants.Servers.REQUESTBIN_URL;
 
 public class TestConfig {
+
+
+
+    protected RequestSpecification requestSpecificationXml = new RequestSpecBuilder()
+            .addHeader("Content-Type", "application/xml; charset=UTF-8")
+            .addCookie("testCookieXML")
+            .setBaseUri(REQUESTBIN_URL)
+            .build();
 
     @BeforeClass
     public void setUp() {
         RestAssured.baseURI = server;
         RestAssured.basePath = path;
 
-        RequestSpecification requestSpecificationForUdemiCourse = new RequestSpecBuilder()
-                .addHeader("Content-Type", "application/json")
-                .addCookie("testCookie")
+        RequestSpecification requestSpecificationJson = new RequestSpecBuilder()
+                .addHeader("Content-Type", "application/json; charset=UTF-8")
+                .addCookie("testCookieJSON")
                 .build();
 
-        RestAssured.requestSpecification = requestSpecificationForUdemiCourse;
+        RestAssured.requestSpecification = requestSpecificationJson;
+
     }
 }
