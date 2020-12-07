@@ -34,4 +34,41 @@ public class JsonPlaceHolder extends TestConfig {
         when().delete(JSONPLACEHOLDER_DELETE).
         then().log().body().statusCode(200);
     }
+
+    @Test
+    public void PostWithJson(){
+
+        String postBodyJson = "{\n" +
+                "\"title\":\"foo\",\n" +
+                "\"body\":\"bar\",\n" +
+                "\"userId\":1,\n" +
+                "}";
+
+        given().body(postBodyJson).log().uri().
+        when().post(JSONPLACEHOLDER_POST).
+        then().log().body().statusCode(201);
+    }
+
+    @Test
+    public void PostWithXml(){
+        String postWithXml = "<Company>\n" +
+                "  <Employee>\n" +
+                "      <FirstName>Tanmay</FirstName>\n" +
+                "      <LastName>Patil</LastName>\n" +
+                "      <ContactNo>1234567890</ContactNo>\n" +
+                "      <Email>tanmaypatil@xyz.com</Email>\n" +
+                "      <Address>\n" +
+                "           <City>Bangalore</City>\n" +
+                "           <State>Karnataka</State>\n" +
+                "           <Zip>560212</Zip>\n" +
+                "      </Address>\n" +
+                "  </Employee>\n" +
+                "</Company>\n";
+
+        given().body(postWithXml).log().uri().
+        when().post("").
+        then().log().body().statusCode(200);
+
+
+    }
 }
