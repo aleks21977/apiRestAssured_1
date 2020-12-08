@@ -41,7 +41,7 @@ public class JsonPlaceHolder extends TestConfig {
         String postBodyJson = "{\n" +
                 "\"title\":\"foo\",\n" +
                 "\"body\":\"bar\",\n" +
-                "\"userId\":1,\n" +
+                "\"userId\":1\n" +
                 "}";
 
         given().body(postBodyJson).log().all().

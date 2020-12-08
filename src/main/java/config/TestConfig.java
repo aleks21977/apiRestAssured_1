@@ -42,5 +42,9 @@ public class TestConfig {
     public void setUp() {
         RestAssured.baseURI = server;
         RestAssured.basePath = path;
+
+        //RestAssured.requestSpecification = requestSpecificationJson; //удалить?
     }
+
+
 }
